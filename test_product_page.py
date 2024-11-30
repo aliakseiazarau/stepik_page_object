@@ -88,8 +88,8 @@ class TestUserAddToBasketFromProductPage():
         link = 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/'
         page = ProductPage(browser, link)
         page.open()
-        product_name = browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
-        product_price = browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
+        product_name = page.get_product_name_value()
+        product_price =  page.get_product_price_value()
         page.press_add_to_cart_button()
         page.product_name_in_message_check(product_name)
-        page.product_price_in_message_check(product_price)          
+        page.product_price_in_message_check(product_price)         
